@@ -1,0 +1,65 @@
+@import "./variables";
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app{
+  width: 100vw;
+  background-color: $background-color;
+}
+
+.card-conf{
+  min-height: 5rem;
+  cursor: pointer;
+  box-shadow: .1rem .1rem .3rem $card-shadow-color;
+  background-color: $card-background-color;
+
+}
+
+.card__animate{
+  transition: background-color .5s ease 0s;
+  transition: box-shadow .5s ease 0s;
+}
+
+.card__animate:hover {
+  box-shadow: .1rem .1rem .8rem $card-shadow-color;
+  background-color: $card-background-color-animate;
+  /*    transform: scale(1.03);*/
+}
+
+.block_cards{
+  border: solid 0.2rem $card-border-color;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../media/font.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
