@@ -6,7 +6,7 @@ const WSserver = require('express-ws')(app)
 
 const aWss = WSserver.getWss()
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3030
 
 const objController = require('./controller/obj.controller')
 const fsController = require('./controller/fs.controller')

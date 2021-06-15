@@ -2,11 +2,15 @@ const uuid = require('uuid')
 const fs = require('fs')
 const childProcess  = require('child_process')
 
+const DIR = process.env.SMS_OUTGOING_DIR || './'
+
+const PREFIX = process.env.SMS_PREFIX || ''
+
 class FsController {
 
     updatePeriod(phone, time) {
-        let text = "To: " + phone + '\r\n' + '\r\n' + 'RQWQR:T1=' + time
-        let fileName = phone + '-' + uuid.v4() + '.sms'
+        let text = "To: " + phone + '\r\n' + '\r\n' + PREFIX + 'T1=' + time
+        let fileName = DIR + phone + '-' + uuid.v4() + '.sms'
 
         console.log(text)
 

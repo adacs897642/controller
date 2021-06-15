@@ -10,6 +10,8 @@ import {observer} from "mobx-react-lite";
 import appState from "./store/appState";
 import Info from "./components/modals/Info";
 
+
+
 const App = observer(() => {
 
         const [infoVisible, setInfoVisible] = useState(false)
@@ -52,7 +54,7 @@ const App = observer(() => {
 
                 }
             }
-            const socket = new WebSocket('ws://localhost:5000')
+            const socket = new WebSocket('ws://' + window.location.hostname +':' + process.env.SERVER_WS_PORT)
             appState.setSocket(socket)
             appState.setObjId(1)
             socket.onopen = () => {
