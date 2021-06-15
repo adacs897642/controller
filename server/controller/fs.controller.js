@@ -10,9 +10,15 @@ class FsController {
 
     updatePeriod(phone, time) {
         let text = "To: " + phone + '\r\n' + '\r\n' + PREFIX + 'T1=' + time
-        let fileName = DIR + phone + '-' + uuid.v4() + '.sms'
+        let fileName
 
         console.log(text)
+
+        if(fs.existsSync(DIR)){
+            fileName = DIR + phone + '-' + uuid.v4() + '.sms'
+        }
+        else
+            fileName = phone + '-' + uuid.v4() + '.sms'
 
         fs.writeFile(fileName, text,
             (e) => {

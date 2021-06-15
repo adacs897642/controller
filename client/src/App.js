@@ -10,6 +10,8 @@ import {observer} from "mobx-react-lite";
 import appState from "./store/appState";
 import Info from "./components/modals/Info";
 
+const PORT = process.env.REACT_APP_SERVER_WS_PORT ||'3050'
+
 
 
 const App = observer(() => {
@@ -18,6 +20,7 @@ const App = observer(() => {
 
 
         useEffect(() => {
+
 
             const connectionHandler = (msg) => {
                 appState.setObjName(msg.obj_name)
@@ -54,7 +57,10 @@ const App = observer(() => {
 
                 }
             }
-            const socket = new WebSocket('ws://' + window.location.hostname +':' + process.env.SERVER_WS_PORT)
+
+            const URL = 'ws://' + window.location.hostname +':' + PORT
+            console.log(process.env.REACT_APP_SERVER_WS_PORT)
+            const socket = new WebSocket(URL)
             appState.setSocket(socket)
             appState.setObjId(1)
             socket.onopen = () => {
@@ -81,6 +87,7 @@ const App = observer(() => {
             setInfoVisible(true)
             appState.setFlagMsg(false)
         }
+
 
         return (
             <div className={"app"}>
